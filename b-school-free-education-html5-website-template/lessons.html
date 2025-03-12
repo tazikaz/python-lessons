@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Уроки Python с нуля - Практика</title>
+    <meta name="description" content="Интерактивные уроки по программированию на Python для новичков">
+    <meta name="author" content="WebThemez">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="font/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Подключаем Prism.js для подсветки синтаксиса -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <!-- Кастомные стили -->
+    <style>
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: Arial, sans-serif;
+        }
+        .header, footer {
+            background-color: #000;
+            color: #fff;
+        }
+        .navbar-brand, .nav a {
+            color: #fff !important;
+        }
+        .nav a:hover {
+            color: #ffeb3b !important;
+        }
+        .lesson-container {
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #000;
+            margin-bottom: 20px;
+        }
+        .lesson-container h3 {
+            color: #ffeb3b;
+        }
+        textarea, pre {
+            background-color: #fff;
+            border: 1px solid #000;
+            color: #000;
+            width: 100%;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .btn-check {
+            background-color: #ffeb3b;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .btn-check:hover {
+            background-color: #ffd700;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+<header class="header">
+  <div class="container">
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" class="navbar-brand scroll-top logo"><b><i>Python с нуля</i></b></a>
+      </div>
+      <div id="main-nav" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav" id="mainNav">
+          <li><a href="index.html" class="scroll-link">Главная</a></li>
+          <li class="active"><a href="lessons.html">Уроки</a></li>
+          <li><a href="index.html#aboutUs" class="scroll-link">О проекте</a></li>
+          <li><a href="index.html#contactUs" class="scroll-link">Контакты</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="heading text-center">
+        <h2>Интерактивные уроки по Python для новичков</h2>
+        <p>Здесь ты найдёшь 50 простых задач с объяснениями. Пиши код, проверяй себя и учись шаг за шагом!</p>
+    </div>
+
+    <!-- Задача 1 -->
+    <div class="lesson-container">
+        <h3>Задача 1: Привет, мир!</h3>
+        <p>Давай начнём с самого простого. В Python есть команда <code>print()</code>, которая выводит текст на экран. Представь, что ты здороваешься с компьютером. Напиши код, чтобы вывести "Привет, мир!". Просто введи это в скобках, и всё сработает.</p>
+        <textarea id="code1" rows="3" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode1()">Проверить</button>
+        <div id="result1" class="result"></div>
+    </div>
+
+    <!-- Задача 2 -->
+    <div class="lesson-container">
+        <h3>Задача 2: Имя на экране</h3>
+        <p>Теперь давай выведем твоё имя. Напиши код, который выведет "Меня зовут [твоё имя]". Например, если тебя зовут Саша, напиши <code>print("Меня зовут Саша")</code>. Текст должен быть в кавычках!</p>
+        <textarea id="code2" rows="3" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode2()">Проверить</button>
+        <div id="result2" class="result"></div>
+    </div>
+
+    <!-- Задача 3 -->
+    <div class="lesson-container">
+        <h3>Задача 3: Любимое число</h3>
+        <p>Числа в Python писать легко — без кавычек. Напиши код, чтобы вывести своё любимое число. Например, если это 7, просто напиши <code>print(7)</code>. Попробуй!</p>
+        <textarea id="code3" rows="3" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode3()">Проверить</button>
+        <div id="result3" class="result"></div>
+    </div>
+
+    <!-- Задача 4 -->
+    <div class="lesson-container">
+        <h3>Задача 4: Переменная с именем</h3>
+        <p>Переменные — это как коробки, куда можно положить данные. Создай переменную <code>name</code> и присвой ей своё имя (в кавычках). Потом выведи её с помощью <code>print()</code>. Например: <code>name = "Саша"</code>, затем <code>print(name)</code>.</p>
+        <textarea id="code4" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode4()">Проверить</button>
+        <div id="result4" class="result"></div>
+    </div>
+
+    <!-- Задача 5 -->
+    <div class="lesson-container">
+        <h3>Задача 5: Число в переменной</h3>
+        <p>Теперь попробуем с числом. Создай переменную <code>age</code> и присвой ей свой возраст. Выведи её на экран. Например: <code>age = 15</code>, затем <code>print(age)</code>. Без кавычек для чисел!</p>
+        <textarea id="code5" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode5()">Проверить</button>
+        <div id="result5" class="result"></div>
+    </div>
+
+    <!-- Задача 6 -->
+    <div class="lesson-container">
+        <h3>Задача 6: Приветствие с переменной</h3>
+        <p>Давай соединим текст и переменную. Создай переменную <code>name = "Твоё имя"</code> и выведи "Привет, [имя]!" с помощью <code>print()</code>. Используй плюс: <code>print("Привет, " + name)</code>.</p>
+        <textarea id="code6" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode6()">Проверить</button>
+        <div id="result6" class="result"></div>
+    </div>
+
+    <!-- Задача 7 -->
+    <div class="lesson-container">
+        <h3>Задача 7: Сколько тебе лет?</h3>
+        <p>Создай переменную <code>age</code> с твоим возрастом и выведи "Мне [возраст] лет". Например: <code>age = 15</code>, затем <code>print("Мне " + str(age) + " лет")</code>. <code>str()</code> превращает число в текст.</p>
+        <textarea id="code7" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode7()">Проверить</button>
+        <div id="result7" class="result"></div>
+    </div>
+
+    <!-- Задача 8 -->
+    <div class="lesson-container">
+        <h3>Задача 8: Сложение чисел</h3>
+        <p>Python умеет считать! Создай две переменные <code>a = 5</code> и <code>b = 3</code>, сложи их и выведи результат. Напиши: <code>print(a + b)</code>. Должно получиться 8.</p>
+        <textarea id="code8" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode8()">Проверить</button>
+        <div id="result8" class="result"></div>
+    </div>
+
+    <!-- Задача 9 -->
+    <div class="lesson-container">
+        <h3>Задача 9: Вычитание</h3>
+        <p>Теперь вычтем. Создай <code>x = 10</code> и <code>y = 4</code>, выведи разницу с помощью <code>print(x - y)</code>. Должно быть 6.</p>
+        <textarea id="code9" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode9()">Проверить</button>
+        <div id="result9" class="result"></div>
+    </div>
+
+    <!-- Задача 10 -->
+    <div class="lesson-container">
+        <h3>Задача 10: Умножение</h3>
+        <p>Умножение — это звёздочка <code>*</code>. Создай <code>a = 6</code> и <code>b = 2</code>, выведи их произведение: <code>print(a * b)</code>. Должно быть 12.</p>
+        <textarea id="code10" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode10()">Проверить</button>
+        <div id="result10" class="result"></div>
+    </div>
+
+    <!-- Задача 11 -->
+    <div class="lesson-container">
+        <h3>Задача 11: Деление</h3>
+        <p>Деление — это слеш <code>/</code>. Создай <code>a = 15</code> и <code>b = 3</code>, выведи результат деления: <code>print(a / b)</code>. Должно быть 5.</p>
+        <textarea id="code11" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode11()">Проверить</button>
+        <div id="result11" class="result"></div>
+    </div>
+
+    <!-- Задача 12 -->
+    <div class="lesson-container">
+        <h3>Задача 12: Больше или меньше?</h3>
+        <p>Проверим условие. Создай <code>a = 7</code> и выведи "Да", если оно больше 5. Используй <code>if</code>: <code>if a > 5:</code> и <code>print("Да")</code>. Не забудь отступ!</p>
+        <textarea id="code12" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode12()">Проверить</button>
+        <div id="result12" class="result"></div>
+    </div>
+
+    <!-- Задача 13 -->
+    <div class="lesson-container">
+        <h3>Задача 13: Равенство</h3>
+        <p>Равенство проверяется двумя знаками <code>==</code>. Создай <code>x = 10</code> и выведи "Равно", если оно равно 10. Пиши: <code>if x == 10:</code> и <code>print("Равно")</code>.</p>
+        <textarea id="code13" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode13()">Проверить</button>
+        <div id="result13" class="result"></div>
+    </div>
+
+    <!-- Задача 14 -->
+    <div class="lesson-container">
+        <h3>Задача 14: Не равно</h3>
+        <p>Неравенство — это <code>!=</code>. Создай <code>y = 8</code> и выведи "Не равно", если оно не равно 5. Пиши: <code>if y != 5:</code> и <code>print("Не равно")</code>.</p>
+        <textarea id="code14" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode14()">Проверить</button>
+        <div id="result14" class="result"></div>
+    </div>
+
+    <!-- Задача 15 -->
+    <div class="lesson-container">
+        <h3>Задача 15: Меньше или равно</h3>
+        <p>Проверка "меньше или равно" — это <code><=</code>. Создай <code>z = 4</code> и выведи "ОК", если оно меньше или равно 5. Пиши: <code>if z <= 5:</code> и <code>print("ОК")</code>.</p>
+        <textarea id="code15" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode15()">Проверить</button>
+        <div id="result15" class="result"></div>
+    </div>
+
+    <!-- Задача 16 -->
+    <div class="lesson-container">
+        <h3>Задача 16: Больше или равно</h3>
+        <p>Проверка "больше или равно" — это <code>>=</code>. Создай <code>n = 6</code> и выведи "Да", если оно больше или равно 6. Пиши: <code>if n >= 6:</code> и <code>print("Да")</code>.</p>
+        <textarea id="code16" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode16()">Проверить</button>
+        <div id="result16" class="result"></div>
+    </div>
+
+    <!-- Задача 17 -->
+    <div class="lesson-container">
+        <h3>Задача 17: Если-иначе</h3>
+        <p>Добавим <code>else</code> — это "иначе". Создай <code>a = 3</code>. Если оно больше 5, выведи "Больше", иначе "Меньше". Пиши: <code>if a > 5:</code> и <code>else:</code>.</p>
+        <textarea id="code17" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode17()">Проверить</button>
+        <div id="result17" class="result"></div>
+    </div>
+
+    <!-- Задача 18 -->
+    <div class="lesson-container">
+        <h3>Задача 18: Проверка возраста</h3>
+        <p>Создай <code>age = 18</code>. Если возраст больше или равен 18, выведи "Взрослый", иначе "Ребёнок". Используй <code>if</code> и <code>else</code>.</p>
+        <textarea id="code18" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode18()">Проверить</button>
+        <div id="result18" class="result"></div>
+    </div>
+
+    <!-- Задача 19 -->
+    <div class="lesson-container">
+        <h3>Задача 19: Чётное число</h3>
+        <p>Чётное число делится на 2 без остатка — используй <code>%</code>. Создай <code>n = 4</code>. Если <code>n % 2 == 0</code>, выведи "Чётное".</p>
+        <textarea id="code19" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode19()">Проверить</button>
+        <div id="result19" class="result"></div>
+    </div>
+
+    <!-- Задача 20 -->
+    <div class="lesson-container">
+        <h3>Задача 20: Нечётное число</h3>
+        <p>Теперь проверим нечётное. Создай <code>n = 7</code>. Если <code>n % 2 != 0</code>, выведи "Нечётное".</p>
+        <textarea id="code20" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode20()">Проверить</button>
+        <div id="result20" class="result"></div>
+    </div>
+
+    <!-- Задача 21 -->
+    <div class="lesson-container">
+        <h3>Задача 21: Простой цикл</h3>
+        <p>Цикл <code>for</code> повторяет действия. Выведи числа от 1 до 3 с помощью <code>for i in range(1, 4):</code> и <code>print(i)</code>.</p>
+        <textarea id="code21" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode21()">Проверить</button>
+        <div id="result21" class="result"></div>
+    </div>
+
+    <!-- Задача 22 -->
+    <div class="lesson-container">
+        <h3>Задача 22: Привет 5 раз</h3>
+        <p>Повтори "Привет" 5 раз. Используй <code>for i in range(5):</code> и <code>print("Привет")</code>. <code>range(5)</code> — это от 0 до 4.</p>
+        <textarea id="code22" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode22()">Проверить</button>
+        <div id="result22" class="result"></div>
+    </div>
+
+    <!-- Задача 23 -->
+    <div class="lesson-container">
+        <h3>Задача 23: Сумма чисел</h3>
+        <p>Создай переменную <code>sum = 0</code>. Сложи числа от 1 до 5 в цикле и выведи сумму. Используй <code>for i in range(1, 6):</code> и <code>sum = sum + i</code>.</p>
+        <textarea id="code23" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode23()">Проверить</button>
+        <div id="result23" class="result"></div>
+    </div>
+
+    <!-- Задача 24 -->
+    <div class="lesson-container">
+        <h3>Задача 24: Таблица умножения</h3>
+        <p>Выведи таблицу умножения на 2 (2, 4, 6, 8, 10). Используй <code>for i in range(1, 6):</code> и <code>print(i * 2)</code>.</p>
+        <textarea id="code24" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode24()">Проверить</button>
+        <div id="result24" class="result"></div>
+    </div>
+
+    <!-- Задача 25 -->
+    <div class="lesson-container">
+        <h3>Задача 25: Пока меньше 10</h3>
+        <p>Цикл <code>while</code> работает, пока условие верно. Создай <code>n = 0</code> и выведи числа до 10 с шагом 1: <code>while n < 10:</code>, <code>print(n)</code>, <code>n = n + 1</code>.</p>
+        <textarea id="code25" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode25()">Проверить</button>
+        <div id="result25" class="result"></div>
+    </div>
+
+    <!-- Задача 26 -->
+    <div class="lesson-container">
+        <h3>Задача 26: Обратный отсчёт</h3>
+        <p>Создай <code>n = 5</code> и выведи числа от 5 до 1. Используй <code>while n > 0:</code>, <code>print(n)</code>, <code>n = n - 1</code>.</p>
+        <textarea id="code26" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode26()">Проверить</button>
+        <div id="result26" class="result"></div>
+    </div>
+
+    <!-- Задача 27 -->
+    <div class="lesson-container">
+        <h3>Задача 27: Список друзей</h3>
+        <p>Список — это как коробка с вещами. Создай <code>friends = ["Аня", "Коля", "Маша"]</code> и выведи первый элемент: <code>print(friends[0])</code>. Нумерация с 0!</p>
+        <textarea id="code27" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode27()">Проверить</button>
+        <div id="result27" class="result"></div>
+    </div>
+
+    <!-- Задача 28 -->
+    <div class="lesson-container">
+        <h3>Задача 28: Все друзья</h3>
+        <p>Выведи всех друзей из списка <code>friends = ["Аня", "Коля", "Маша"]</code> в цикле: <code>for friend in friends:</code> и <code>print(friend)</code>.</p>
+        <textarea id="code28" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode28()">Проверить</button>
+        <div id="result28" class="result"></div>
+    </div>
+
+    <!-- Задача 29 -->
+    <div class="lesson-container">
+        <h3>Задача 29: Длина списка</h3>
+        <p>Функция <code>len()</code> считает элементы. Создай <code>nums = [1, 2, 3, 4]</code> и выведи длину: <code>print(len(nums))</code>. Должно быть 4.</p>
+        <textarea id="code29" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode29()">Проверить</button>
+        <div id="result29" class="result"></div>
+    </div>
+
+    <!-- Задача 30 -->
+    <div class="lesson-container">
+        <h3>Задача 30: Добавление в список</h3>
+        <p>Метод <code>append()</code> добавляет элемент. Создай <code>numbers = [1, 2]</code>, добавь 3 и выведи: <code>numbers.append(3)</code>, <code>print(numbers)</code>.</p>
+        <textarea id="code30" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode30()">Проверить</button>
+        <div id="result30" class="result"></div>
+    </div>
+
+    <!-- Задача 31 -->
+    <div class="lesson-container">
+        <h3>Задача 31: Удаление из списка</h3>
+        <p>Метод <code>pop()</code> убирает элемент. Создай <code>items = ["яблоко", "банан"]</code>, удали последний и выведи: <code>items.pop()</code>, <code>print(items)</code>.</p>
+        <textarea id="code31" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode31()">Проверить</button>
+        <div id="result31" class="result"></div>
+    </div>
+
+    <!-- Задача 32 -->
+    <div class="lesson-container">
+        <h3>Задача 32: Максимум в списке</h3>
+        <p>Функция <code>max()</code> ищет максимум. Создай <code>nums = [4, 2, 8, 1]</code> и выведи максимум: <code>print(max(nums))</code>. Должно быть 8.</p>
+        <textarea id="code32" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode32()">Проверить</button>
+        <div id="result32" class="result"></div>
+    </div>
+
+    <!-- Задача 33 -->
+    <div class="lesson-container">
+        <h3>Задача 33: Минимум в списке</h3>
+        <p>Функция <code>min()</code> ищет минимум. Создай <code>nums = [4, 2, 8, 1]</code> и выведи минимум: <code>print(min(nums))</code>. Должно быть 1.</p>
+        <textarea id="code33" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode33()">Проверить</button>
+        <div id="result33" class="result"></div>
+    </div>
+
+    <!-- Задача 34 -->
+    <div class="lesson-container">
+        <h3>Задача 34: Простая функция</h3>
+        <p>Функции — это как рецепты. Создай функцию <code>say_hello()</code>, которая выводит "Привет". Пиши: <code>def say_hello():</code> и <code>print("Привет")</code>, затем вызови <code>say_hello()</code>.</p>
+        <textarea id="code34" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode34()">Проверить</button>
+        <div id="result34" class="result"></div>
+    </div>
+
+    <!-- Задача 35 -->
+    <div class="lesson-container">
+        <h3>Задача 35: Функция с аргументом</h3>
+        <p>Добавим аргумент. Создай функцию <code>greet(name)</code>, которая выводит "Привет, [имя]". Пиши: <code>def greet(name):</code> и <code>print("Привет, " + name)</code>, затем <code>greet("Саша")</code>.</p>
+        <textarea id="code35" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode35()">Проверить</button>
+        <div id="result35" class="result"></div>
+    </div>
+
+    <!-- Задача 36 -->
+    <div class="lesson-container">
+        <h3>Задача 36: Функция с числом</h3>
+        <p>Создай функцию <code>double(n)</code>, которая умножает число на 2 и выводит. Пиши: <code>def double(n):</code> и <code>print(n * 2)</code>, затем <code>double(5)</code>.</p>
+        <textarea id="code36" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode36()">Проверить</button>
+        <div id="result36" class="result"></div>
+    </div>
+
+    <!-- Задача 37 -->
+    <div class="lesson-container">
+        <h3>Задача 37: Возврат значения</h3>
+        <p>Функция может возвращать результат с <code>return</code>. Создай <code>def add(a, b):</code>, верни сумму и выведи: <code>return a + b</code>, затем <code>print(add(3, 4))</code>.</p>
+        <textarea id="code37" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode37()">Проверить</button>
+        <div id="result37" class="result"></div>
+    </div>
+
+    <!-- Задача 38 -->
+    <div class="lesson-container">
+        <h3>Задача 38: Проверка чётности</h3>
+        <p>Создай функцию <code>is_even(n)</code>. Если число чётное (<code>n % 2 == 0</code>), верни "Чётное", иначе "Нечётное". Выведи: <code>print(is_even(6))</code>.</p>
+        <textarea id="code38" rows="6" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode38()">Проверить</button>
+        <div id="result38" class="result"></div>
+    </div>
+
+    <!-- Задача 39 -->
+    <div class="lesson-container">
+        <h3>Задача 39: Сравнение чисел</h3>
+        <p>Создай функцию <code>compare(a, b)</code>. Если <code>a > b</code>, выведи "Первое больше", иначе "Второе больше или равно". Выведи: <code>compare(5, 3)</code>.</p>
+        <textarea id="code39" rows="6" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode39()">Проверить</button>
+        <div id="result39" class="result"></div>
+    </div>
+
+    <!-- Задача 40 -->
+    <div class="lesson-container">
+        <h3>Задача 40: Простое число</h3>
+        <p>Создай функцию <code>is_prime(n)</code>. Если <code>n</code> делится только на 1 и себя, выведи "Простое". Для <code>n = 7</code> проверь с циклом до 6.</p>
+        <textarea id="code40" rows="8" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode40()">Проверить</button>
+        <div id="result40" class="result"></div>
+    </div>
+
+    <!-- Задача 41 -->
+    <div class="lesson-container">
+        <h3>Задача 41: Факториал</h3>
+        <p>Факториал — это произведение чисел от 1 до n. Создай функцию <code>factorial(n)</code> для <code>n = 4</code>. Используй цикл и <code>return</code>.</p>
+        <textarea id="code41" rows="8" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode41()">Проверить</button>
+        <div id="result41" class="result"></div>
+    </div>
+
+    <!-- Задача 42 -->
+    <div class="lesson-container">
+        <h3>Задача 42: Реверс строки</h3>
+        <p>Создай переменную <code>s = "Python"</code> и выведи её задом наперёд с помощью <code>print(s[::-1])</code>. Должно быть "nohtyP".</p>
+        <textarea id="code42" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode42()">Проверить</button>
+        <div id="result42" class="result"></div>
+    </div>
+
+    <!-- Задача 43 -->
+    <div class="lesson-container">
+        <h3>Задача 43: Длина строки</h3>
+        <p>Создай <code>s = "Привет"</code> и выведи длину с <code>print(len(s))</code>. Учитываются все символы, включая пробелы.</p>
+        <textarea id="code43" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode43()">Проверить</button>
+        <div id="result43" class="result"></div>
+    </div>
+
+    <!-- Задача 44 -->
+    <div class="lesson-container">
+        <h3>Задача 44: Заглавные буквы</h3>
+        <p>Создай <code>s = "python"</code> и выведи с заглавными буквами: <code>print(s.upper())</code>. Должно быть "PYTHON".</p>
+        <textarea id="code44" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode44()">Проверить</button>
+        <div id="result44" class="result"></div>
+    </div>
+
+    <!-- Задача 45 -->
+    <div class="lesson-container">
+        <h3>Задача 45: Маленькие буквы</h3>
+        <p>Создай <code>s = "HELLO"</code> и выведи с маленькими буквами: <code>print(s.lower())</code>. Должно быть "hello".</p>
+        <textarea id="code45" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode45()">Проверить</button>
+        <div id="result45" class="result"></div>
+    </div>
+
+    <!-- Задача 46 -->
+    <div class="lesson-container">
+        <h3>Задача 46: Замена текста</h3>
+        <p>Создай <code>s = "Я люблю Python"</code> и замени "Python" на "код". Используй <code>print(s.replace("Python", "код"))</code>.</p>
+        <textarea id="code46" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode46()">Проверить</button>
+        <div id="result46" class="result"></div>
+    </div>
+
+    <!-- Задача 47 -->
+    <div class="lesson-container">
+        <h3>Задача 47: Подсчёт символов</h3>
+        <p>Создай <code>s = "абракадабра"</code> и выведи, сколько раз встречается "а": <code>print(s.count("а"))</code>.</p>
+        <textarea id="code47" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode47()">Проверить</button>
+        <div id="result47" class="result"></div>
+    </div>
+
+    <!-- Задача 48 -->
+    <div class="lesson-container">
+        <h3>Задача 48: Срез строки</h3>
+        <p>Создай <code>s = "Python"</code> и выведи первые 3 символа: <code>print(s[0:3])</code>. Должно быть "Pyt".</p>
+        <textarea id="code48" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode48()">Проверить</button>
+        <div id="result48" class="result"></div>
+    </div>
+
+    <!-- Задача 49 -->
+    <div class="lesson-container">
+        <h3>Задача 49: Последние символы</h3>
+        <p>Создай <code>s = "Программирование"</code> и выведи последние 4 символа: <code>print(s[-4:])</code>. Должно быть "ние".</p>
+        <textarea id="code49" rows="4" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode49()">Проверить</button>
+        <div id="result49" class="result"></div>
+    </div>
+
+    <!-- Задача 50 -->
+    <div class="lesson-container">
+        <h3>Задача 50: Поздравление</h3>
+        <p>Создай функцию <code>congratulate(name)</code>, которая выводит "С днём рождения, [имя]!". Вызови её с <code>congratulate("Вася")</code>.</p>
+        <textarea id="code50" rows="5" placeholder="Введи свой код здесь"></textarea>
+        <br>
+        <button class="btn-check" onclick="checkCode50()">Проверить</button>
+        <div id="result50" class="result"></div>
+    </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>© 2025 Python с нуля | Все права защищены</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+
+<script src="js/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.isotope.min.js" type="text/javascript"></script>
+<script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="js/jquery.nav.js" type="text/javascript"></script>
+<script src="js/custom.js" type="text/javascript"></script>
+
+<!-- Скрипты для проверки кода -->
+<script>
+    function checkCode1() { const code = document.getElementById("code1").value.trim(); document.getElementById("result1").innerHTML = code === 'print("Привет, мир!")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: print("Привет, мир!")</span>'; }
+    function checkCode2() { const code = document.getElementById("code2").value.trim(); document.getElementById("result2").innerHTML = code.startsWith('print("Меня зовут') && code.endsWith('")') ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Напиши: print("Меня зовут [твоё имя]")</span>'; }
+    function checkCode3() { const code = document.getElementById("code3").value.trim(); document.getElementById("result3").innerHTML = code.startsWith('print(') && code.endsWith(')') && !code.includes('"') ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Напиши: print(число без кавычек)</span>'; }
+    function checkCode4() { const code = document.getElementById("code4").value.trim(); document.getElementById("result4").innerHTML = code.includes('name = "') && code.includes('print(name)') ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: name = "Твоё имя"\nprint(name)</span>'; }
+    function checkCode5() { const code = document.getElementById("code5").value.trim(); document.getElementById("result5").innerHTML = code.includes('age = ') && code.includes('print(age)') && !code.includes('"') ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: age = твой_возраст\nprint(age)</span>'; }
+    function checkCode6() { const code = document.getElementById("code6").value.trim(); document.getElementById("result6").innerHTML = code.includes('name = "') && code.includes('print("Привет, " + name)') ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: name = "Твоё имя"\nprint("Привет, " + name)</span>'; }
+    function checkCode7() { const code = document.getElementById("code7").value.trim(); document.getElementById("result7").innerHTML = code.includes('age = ') && code.includes('print("Мне " + str(age) + " лет")') ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: age = твой_возраст\nprint("Мне " + str(age) + " лет")</span>'; }
+    function checkCode8() { const code = document.getElementById("code8").value.trim(); document.getElementById("result8").innerHTML = code === 'a = 5\nb = 3\nprint(a + b)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: a = 5\nb = 3\nprint(a + b)</span>'; }
+    function checkCode9() { const code = document.getElementById("code9").value.trim(); document.getElementById("result9").innerHTML = code === 'x = 10\ny = 4\nprint(x - y)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: x = 10\ny = 4\nprint(x - y)</span>'; }
+    function checkCode10() { const code = document.getElementById("code10").value.trim(); document.getElementById("result10").innerHTML = code === 'a = 6\nb = 2\nprint(a * b)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: a = 6\nb = 2\nprint(a * b)</span>'; }
+    function checkCode11() { const code = document.getElementById("code11").value.trim(); document.getElementById("result11").innerHTML = code === 'a = 15\nb = 3\nprint(a / b)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: a = 15\nb = 3\nprint(a / b)</span>'; }
+    function checkCode12() { const code = document.getElementById("code12").value.trim(); document.getElementById("result12").innerHTML = code === 'a = 7\nif a > 5:\n    print("Да")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: a = 7\nif a > 5:\n    print("Да")</span>'; }
+    function checkCode13() { const code = document.getElementById("code13").value.trim(); document.getElementById("result13").innerHTML = code === 'x = 10\nif x == 10:\n    print("Равно")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: x = 10\nif x == 10:\n    print("Равно")</span>'; }
+    function checkCode14() { const code = document.getElementById("code14").value.trim(); document.getElementById("result14").innerHTML = code === 'y = 8\nif y != 5:\n    print("Не равно")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: y = 8\nif y != 5:\n    print("Не равно")</span>'; }
+    function checkCode15() { const code = document.getElementById("code15").value.trim(); document.getElementById("result15").innerHTML = code === 'z = 4\nif z <= 5:\n    print("ОК")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: z = 4\nif z <= 5:\n    print("ОК")</span>'; }
+    function checkCode16() { const code = document.getElementById("code16").value.trim(); document.getElementById("result16").innerHTML = code === 'n = 6\nif n >= 6:\n    print("Да")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: n = 6\nif n >= 6:\n    print("Да")</span>'; }
+    function checkCode17() { const code = document.getElementById("code17").value.trim(); document.getElementById("result17").innerHTML = code === 'a = 3\nif a > 5:\n    print("Больше")\nelse:\n    print("Меньше")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: a = 3\nif a > 5:\n    print("Больше")\nelse:\n    print("Меньше")</span>'; }
+    function checkCode18() { const code = document.getElementById("code18").value.trim(); document.getElementById("result18").innerHTML = code === 'age = 18\nif age >= 18:\n    print("Взрослый")\nelse:\n    print("Ребёнок")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: age = 18\nif age >= 18:\n    print("Взрослый")\nelse:\n    print("Ребёнок")</span>'; }
+    function checkCode19() { const code = document.getElementById("code19").value.trim(); document.getElementById("result19").innerHTML = code === 'n = 4\nif n % 2 == 0:\n    print("Чётное")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: n = 4\nif n % 2 == 0:\n    print("Чётное")</span>'; }
+    function checkCode20() { const code = document.getElementById("code20").value.trim(); document.getElementById("result20").innerHTML = code === 'n = 7\nif n % 2 != 0:\n    print("Нечётное")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: n = 7\nif n % 2 != 0:\n    print("Нечётное")</span>'; }
+    function checkCode21() { const code = document.getElementById("code21").value.trim(); document.getElementById("result21").innerHTML = code === 'for i in range(1, 4):\n    print(i)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: for i in range(1, 4):\n    print(i)</span>'; }
+    function checkCode22() { const code = document.getElementById("code22").value.trim(); document.getElementById("result22").innerHTML = code === 'for i in range(5):\n    print("Привет")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: for i in range(5):\n    print("Привет")</span>'; }
+    function checkCode23() { const code = document.getElementById("code23").value.trim(); document.getElementById("result23").innerHTML = code === 'sum = 0\nfor i in range(1, 6):\n    sum = sum + i\nprint(sum)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: sum = 0\nfor i in range(1, 6):\n    sum = sum + i\nprint(sum)</span>'; }
+    function checkCode24() { const code = document.getElementById("code24").value.trim(); document.getElementById("result24").innerHTML = code === 'for i in range(1, 6):\n    print(i * 2)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: for i in range(1, 6):\n    print(i * 2)</span>'; }
+    function checkCode25() { const code = document.getElementById("code25").value.trim(); document.getElementById("result25").innerHTML = code === 'n = 0\nwhile n < 10:\n    print(n)\n    n = n + 1' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: n = 0\nwhile n < 10:\n    print(n)\n    n = n + 1</span>'; }
+    function checkCode26() { const code = document.getElementById("code26").value.trim(); document.getElementById("result26").innerHTML = code === 'n = 5\nwhile n > 0:\n    print(n)\n    n = n - 1' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: n = 5\nwhile n > 0:\n    print(n)\n    n = n - 1</span>'; }
+    function checkCode27() { const code = document.getElementById("code27").value.trim(); document.getElementById("result27").innerHTML = code === 'friends = ["Аня", "Коля", "Маша"]\nprint(friends[0])' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: friends = ["Аня", "Коля", "Маша"]\nprint(friends[0])</span>'; }
+    function checkCode28() { const code = document.getElementById("code28").value.trim(); document.getElementById("result28").innerHTML = code === 'friends = ["Аня", "Коля", "Маша"]\nfor friend in friends:\n    print(friend)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: friends = ["Аня", "Коля", "Маша"]\nfor friend in friends:\n    print(friend)</span>'; }
+    function checkCode29() { const code = document.getElementById("code29").value.trim(); document.getElementById("result29").innerHTML = code === 'nums = [1, 2, 3, 4]\nprint(len(nums))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: nums = [1, 2, 3, 4]\nprint(len(nums))</span>'; }
+    function checkCode30() { const code = document.getElementById("code30").value.trim(); document.getElementById("result30").innerHTML = code === 'numbers = [1, 2]\nnumbers.append(3)\nprint(numbers)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: numbers = [1, 2]\nnumbers.append(3)\nprint(numbers)</span>'; }
+    function checkCode31() { const code = document.getElementById("code31").value.trim(); document.getElementById("result31").innerHTML = code === 'items = ["яблоко", "банан"]\nitems.pop()\nprint(items)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: items = ["яблоко", "банан"]\nitems.pop()\nprint(items)</span>'; }
+    function checkCode32() { const code = document.getElementById("code32").value.trim(); document.getElementById("result32").innerHTML = code === 'nums = [4, 2, 8, 1]\nprint(max(nums))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: nums = [4, 2, 8, 1]\nprint(max(nums))</span>'; }
+    function checkCode33() { const code = document.getElementById("code33").value.trim(); document.getElementById("result33").innerHTML = code === 'nums = [4, 2, 8, 1]\nprint(min(nums))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: nums = [4, 2, 8, 1]\nprint(min(nums))</span>'; }
+    function checkCode34() { const code = document.getElementById("code34").value.trim(); document.getElementById("result34").innerHTML = code === 'def say_hello():\n    print("Привет")\nsay_hello()' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def say_hello():\n    print("Привет")\nsay_hello()</span>'; }
+    function checkCode35() { const code = document.getElementById("code35").value.trim(); document.getElementById("result35").innerHTML = code === 'def greet(name):\n    print("Привет, " + name)\ngreet("Саша")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def greet(name):\n    print("Привет, " + name)\ngreet("Саша")</span>'; }
+    function checkCode36() { const code = document.getElementById("code36").value.trim(); document.getElementById("result36").innerHTML = code === 'def double(n):\n    print(n * 2)\ndouble(5)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def double(n):\n    print(n * 2)\ndouble(5)</span>'; }
+    function checkCode37() { const code = document.getElementById("code37").value.trim(); document.getElementById("result37").innerHTML = code === 'def add(a, b):\n    return a + b\nprint(add(3, 4))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def add(a, b):\n    return a + b\nprint(add(3, 4))</span>'; }
+    function checkCode38() { const code = document.getElementById("code38").value.trim(); document.getElementById("result38").innerHTML = code === 'def is_even(n):\n    if n % 2 == 0:\n        return "Чётное"\n    else:\n        return "Нечётное"\nprint(is_even(6))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def is_even(n):\n    if n % 2 == 0:\n        return "Чётное"\n    else:\n        return "Нечётное"\nprint(is_even(6))</span>'; }
+    function checkCode39() { const code = document.getElementById("code39").value.trim(); document.getElementById("result39").innerHTML = code === 'def compare(a, b):\n    if a > b:\n        print("Первое больше")\n    else:\n        print("Второе больше или равно")\ncompare(5, 3)' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def compare(a, b):\n    if a > b:\n        print("Первое больше")\n    else:\n        print("Второе больше или равно")\ncompare(5, 3)</span>'; }
+    function checkCode40() { const code = document.getElementById("code40").value.trim(); document.getElementById("result40").innerHTML = code === 'def is_prime(n):\n    for i in range(2, n):\n        if n % i == 0:\n            return "Не простое"\n    return "Простое"\nprint(is_even(7))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def is_prime(n):\n    for i in range(2, n):\n        if n % i == 0:\n            return "Не простое"\n    return "Простое"\nprint(is_prime(7))</span>'; }
+    function checkCode41() { const code = document.getElementById("code41").value.trim(); document.getElementById("result41").innerHTML = code === 'def factorial(n):\n    result = 1\n    for i in range(1, n + 1):\n        result = result * i\n    return result\nprint(factorial(4))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def factorial(n):\n    result = 1\n    for i in range(1, n + 1):\n        result = result * i\n    return result\nprint(factorial(4))</span>'; }
+    function checkCode42() { const code = document.getElementById("code42").value.trim(); document.getElementById("result42").innerHTML = code === 's = "Python"\nprint(s[::-1])' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "Python"\nprint(s[::-1])</span>'; }
+    function checkCode43() { const code = document.getElementById("code43").value.trim(); document.getElementById("result43").innerHTML = code === 's = "Привет"\nprint(len(s))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "Привет"\nprint(len(s))</span>'; }
+    function checkCode44() { const code = document.getElementById("code44").value.trim(); document.getElementById("result44").innerHTML = code === 's = "python"\nprint(s.upper())' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "python"\nprint(s.upper())</span>'; }
+    function checkCode45() { const code = document.getElementById("code45").value.trim(); document.getElementById("result45").innerHTML = code === 's = "HELLO"\nprint(s.lower())' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "HELLO"\nprint(s.lower())</span>'; }
+    function checkCode46() { const code = document.getElementById("code46").value.trim(); document.getElementById("result46").innerHTML = code === 's = "Я люблю Python"\nprint(s.replace("Python", "код"))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "Я люблю Python"\nprint(s.replace("Python", "код"))</span>'; }
+    function checkCode47() { const code = document.getElementById("code47").value.trim(); document.getElementById("result47").innerHTML = code === 's = "абракадабра"\nprint(s.count("а"))' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "абракадабра"\nprint(s.count("а"))</span>'; }
+    function checkCode48() { const code = document.getElementById("code48").value.trim(); document.getElementById("result48").innerHTML = code === 's = "Python"\nprint(s[0:3])' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "Python"\nprint(s[0:3])</span>'; }
+    function checkCode49() { const code = document.getElementById("code49").value.trim(); document.getElementById("result49").innerHTML = code === 's = "Программирование"\nprint(s[-4:])' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: s = "Программирование"\nprint(s[-4:])</span>'; }
+    function checkCode50() { const code = document.getElementById("code50").value.trim(); document.getElementById("result50").innerHTML = code === 'def congratulate(name):\n    print("С днём рождения, " + name + "!")\ncongratulate("Вася")' ? '<span class="correct">Правильно!</span>' : '<span class="incorrect">Неправильно. Попробуй: def congratulate(name):\n    print("С днём рождения, " + name + "!")\ncongratulate("Вася")</span>'; }
+</script>
+</body>
+</html>
